@@ -1,0 +1,8 @@
+title: Juan Ogdon — Portfolio
+theme: minima
+description: Portfolio of projects in aerospace engineering, controls, CFD, and simulation.
+markdown: kramdown
+permalink: pretty
+collections:
+  projects:
+    output: true

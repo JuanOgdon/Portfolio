@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use or reference this work, please cite it as below."
+title: "Juan Ogdon — Engineering Portfolio"
+authors:
+  - family-names: "Ogdon"
+    given-names: "Juan Ignacio"
+keywords:
+  - aerospace
+  - controls
+  - CFD
+  - simulation
+  - MATLAB
+  - Python
+license: MIT
+repository-code: "https://github.com/<your-username>/<your-repo>"
