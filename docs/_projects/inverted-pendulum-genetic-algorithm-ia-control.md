@@ -28,7 +28,7 @@ This project explores a **learning-based controller**: a small **neural network*
 
 ## Controller Architecture (NN + GA)
 - **Neural net:** lightweight MLP (inputs → hidden → 1 output).  
-- **Genetic Algorithm:** population of candidate weight vectors (individuals), mutation, selection, elitism, and **immigrants** for exploration.
+- **Genetic Algorithm:** population of candidate weight vectors (individuals), mutation, crossover, selection, elitism, and **immigrants** for exploration.
 
 ## Fitness (Scoring) Design
 I designed the score to **strongly prefer true stabilization** over “lucky spins”:
