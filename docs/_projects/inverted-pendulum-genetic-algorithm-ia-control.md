@@ -4,9 +4,6 @@ date: 2025-09-24
 tags: [controls, RL, genetic-algorithm, python, simulation, manim]
 status: in-progress
 summary: "I trained a small neural network with a genetic algorithm to balance an inverted pendulum, with exploration/robustness tricks that transfer to TVC-style rockets."
-links:
-  repo: ""
-  video: ""
 ---
 
 ## Introduction
