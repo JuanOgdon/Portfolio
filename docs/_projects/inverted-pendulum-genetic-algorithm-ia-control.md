@@ -2,7 +2,7 @@
 title: "Inverted Pendulum — Genetic Algorithm + Neural Network Control"
 date: 2025-09-24
 tags: [controls, RL, genetic-algorithm, python, simulation, manim]
-status: in-progress
+status: partialy finished, upgradable.
 summary: "I trained a small neural network with a genetic algorithm to balance an inverted pendulum, with exploration/robustness tricks that transfer to TVC-style rockets."
 ---
 
