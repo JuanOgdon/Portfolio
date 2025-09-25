@@ -14,16 +14,3 @@ This repository is the **source of truth** for my public projects and also power
 -  **LinkedIn:** https://www.linkedin.com/in/juanogdon/
 -  **Contact:** [juanogdon@gmail.com](juanogdon@gmail.com)
 
-> If your repo name or user handle differ, update the URLs above accordingly.
-
----
-
-##  Featured Projects
-- **CubeSat Solar Panel Release Mechanism** — hold-down & release system; design + test campaign; stats on deployment timing and outlier policy.  
-  → https://juanogdon.github.io/Portfolio/projects/cubesat-solar-panel-release-mechanism/
-
-- **TVC Rocket Simulation — 3-DOF (planar) + Guidance & PID** — Simulink model with thrust vectoring, aero forces, gimbal limits, and waypoint guidance.  
-  → https://juanogdon.github.io/Portfolio/projects/tvc-3dof-rocket-simulation/
-
-- **Inverted Pendulum — Genetic Algorithm + Neural Network Control** — GA-trained MLP with multiplicative shaping, novelty/immigrants, and multi-start robustness.  
-  → https://juanogdon.github.io/Portfolio/projects/inverted-pendulum-genetic-algorithm-ia-control/
