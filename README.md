@@ -13,18 +13,6 @@ Welcome! I'm an aerospace engineering student interested in controls, CFD, simul
 -  **TVC Mini-Rocket** — Arduino UNO + IMU6050, attitude control prototype. *In progress*
 -  **Control + RL:** Inverted pendulum simulations and animations to visualize learning.
 
-## Repository Layout
-```
-.
-├── docs/                  # GitHub Pages site (served as https://<user>.github.io/<repo>/)
-├── projects/              # One markdown file per project (source for site)
-├── assets/images/         # Shared images
-├── resume/                # Your resume (PDF) + source
-├── .github/workflows/     # CI: linting for Markdown & YAML
-├── CITATION.cff           # How to cite my work
-├── LICENSE                # MIT license
-└── README.md
-```
 
 ---
 *Last updated: 2025*
