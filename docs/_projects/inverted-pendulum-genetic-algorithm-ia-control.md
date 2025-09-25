@@ -56,11 +56,11 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 ## Results (placeholders)
 Add your media here once you export it from your simulation:
 - **Upright recovery demo**  
-  ![](/assets/images/animation.gif)
+  ![](/docs/assets/images/animation.gif)
 - **State values** 
-  ![](/assets/images/figure_2.png)
+  ![](/docs/assets/images/figure_2.png)
 - **Scoring function**
-  ![](/assets/images/figure_3.png)
+  ![](/docs//assets/images/figure_3.png)
 
 ## Implementation Notes
 - **Termination + shaping** order matters; apply shaping **only** while upright to avoid rewarding spins.
