@@ -8,10 +8,10 @@ Welcome! I'm an aerospace engineering student interested in controls, CFD, simul
 -  **Interests and focus:** MATLAB · Simulink · Controls · Python · Manim · Flight Dynamics · OpenFOAM · CFD · Rocketry
 
 ## Highlights
-- 🛰️ **CubeSat Solar Panel Release Mechanism** — design, test data analysis, and conference presentation (IAA).
-- 🚀 **TVC 2D Rocket Simulation + PID Controller + Guidance** — Simulink design of 2D 3DOF Guidance and control system for a small rocket.
-- 🚀 **TVC Mini-Rocket** — Arduino UNO + IMU6050, attitude control prototype. *In progress*
-- 🧠 **Control + RL:** Inverted pendulum simulations and animations to visualize learning.
+-  **CubeSat Solar Panel Release Mechanism** — design, test data analysis, and conference presentation (IAA).
+-  **TVC 2D Rocket Simulation + PID Controller + Guidance** — Simulink design of 2D 3DOF Guidance and control system for a small rocket.
+-  **TVC Mini-Rocket** — Arduino UNO + IMU6050, attitude control prototype. *In progress*
+-  **Control + RL:** Inverted pendulum simulations and animations to visualize learning.
 
 ## Repository Layout
 ```
