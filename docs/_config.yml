@@ -3,19 +3,21 @@ theme: minima
 description: Portfolio of aerospace engineering projects — controls, CFD, simulation (Python/MATLAB/Simulink/OpenFOAM), mechanisms, and hardware prototyping.
 markdown: kramdown
 permalink: pretty
-url: "https://juanogdon.github.io"
-baseurl: "/Portfolio"   # your repo name, case-sensitive
 
-# Define collections
+# Needed for project sites under /<repo>
+url: "https://juanogdon.github.io"
+baseurl: "/Portfolio"   # <-- EXACT repo name (case-sensitive)
+
+# Build a 'projects' collection from docs/_projects
 collections:
   projects:
     output: true
     permalink: /projects/:name/
 
-# Navigation (optional)
+# Use a layout that shows the page title
 defaults:
   - scope:
       path: ""
       type: "projects"
     values:
-      layout: default
+      layout: page
