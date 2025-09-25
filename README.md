@@ -1,6 +1,6 @@
 # Juan Ogdon — Engineering Portfolio
 
-Welcome! I’m a 5th year aerospace engineering student focused, but not limited to, on **controls**, **simulation** (Python / MATLAB / Simulink), **CFD**, and **hardware prototyping**.  
+Welcome! I’m a 5th year aerospace engineering student focused on, but not limited to, **controls**, **simulation** (Python / MATLAB / Simulink), **CFD**, and **hardware prototyping**.  
 This repository is the **source of truth** for my public projects and also powers my **GitHub Pages** site.
 
 ---
