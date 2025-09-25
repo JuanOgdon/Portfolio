@@ -1,18 +1,39 @@
 # Juan Ogdon — Engineering Portfolio
 
-Welcome! I'm an aerospace engineering student interested in controls, simulation (Python/Matlab/Simulink), and hardware prototyping. This repo is the **source of truth** for my public projects and the code behind my portfolio site (GitHub Pages).
-
--  **Live site:** enabled via GitHub Pages in `/docs`
--  **Projects index:** see [`docs/_projects`](docs/_projects)
--  **Resume:** [`/resume/Resume_Juan_Ogdon`](resume/Resume_Juan_Ogdon.pdf)
--  **Interests and focus:** MATLAB · Simulink · Controls · Python · Manim · Flight Dynamics · OpenFOAM · CFD · Rocketry
-
-## Highlights
--  **CubeSat Solar Panel Release Mechanism** — design, test data analysis, and conference presentation (IAA).
--  **TVC 2D Rocket Simulation + PID Controller + Guidance** — Simulink design of 2D 3DOF Guidance and control system for a small rocket.
--  **TVC Mini-Rocket** — Arduino UNO + IMU6050, attitude control prototype. *In progress*
--  **Control + RL:** Inverted pendulum simulations and animations to visualize learning.
-
+Welcome! I’m an aerospace engineering student focused on **controls**, **simulation** (Python / MATLAB / Simulink), **CFD**, and **hardware prototyping**.  
+This repository is the **source of truth** for my public projects and also powers my **GitHub Pages** site.
 
 ---
-*Last updated: 2025*
+
+## 🔗 Quick Links
+- 🌐 **Live site:** https://juanogdon.github.io/Portfolio/
+- 📁 **All projects (site):** https://juanogdon.github.io/Portfolio/projects/
+- 🎓 **Education & Demos (site):** https://juanogdon.github.io/Portfolio/education/
+- 📚 **Projects (edit in repo):** [`docs/_projects`](docs/_projects)
+- 📄 **Resume (PDF):** [`resume/Resume_Juan_Ogdon.pdf`](resume/Resume_Juan_Ogdon.pdf)
+- 💼 **LinkedIn:** https://www.linkedin.com/in/juanogdon/
+- 📧 **Contact:** [your.email@example.com](mailto:your.email@example.com)
+
+> If your repo name or user handle differ, update the URLs above accordingly.
+
+---
+
+## 🧪 Featured Projects
+- **CubeSat Solar Panel Release Mechanism** — hold-down & release system; design + test campaign; stats on deployment timing and outlier policy.  
+  → https://juanogdon.github.io/Portfolio/projects/cubesat-solar-panel-release-mechanism/
+
+- **TVC Rocket Simulation — 3-DOF (planar) + Guidance & PID** — Simulink model with thrust vectoring, aero forces, gimbal limits, and waypoint guidance.  
+  → https://juanogdon.github.io/Portfolio/projects/tvc-3dof-rocket-simulation/
+
+- **Inverted Pendulum — Genetic Algorithm + Neural Network Control** — GA-trained MLP with multiplicative shaping, novelty/immigrants, and multi-start robustness.  
+  → https://juanogdon.github.io/Portfolio/projects/inverted-pendulum-genetic-algorithm-ia-control/
+
+---
+
+## 🔧 Tech Stack & Focus
+**Languages/Tools:** Python · MATLAB · Simulink · Manim · OpenFOAM  
+**Domains:** Controls · Flight Dynamics · Guidance · CFD · Mechanisms · Embedded Prototyping
+
+---
+
+## 📁 Repository Layout
