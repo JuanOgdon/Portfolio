@@ -56,13 +56,13 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 ## Results (placeholders)
 Add your media here once you export it from your simulation:
 **Upright recovery demo**  
-![]({{ site.baseurl }}/assets/images/animation.gif)
+![](https://juanogdon.github.io/Portfolio/assets/images/animation.gif)
 
 **State values**  
-![]({{ site.baseurl }}/assets/images/figure_2.png)
+![](https://juanogdon.github.io/Portfolio/assets/images/figure_2.png)
 
 **Scoring function**  
-![]({{ site.baseurl }}/assets/images/figure_3.png)
+![](https://juanogdon.github.io/Portfolio/assets/images/figure_3.png)
 
 ## Implementation Notes
 - **Termination + shaping** order matters; apply shaping **only** while upright to avoid rewarding spins.
