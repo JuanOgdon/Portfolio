@@ -53,7 +53,7 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 - **Individual score = average of the 3 runs.**  
 - This improved generalization and reduced brittle, over-specialized policies.
 
-## Results (placeholders)
+## Results
 Add your media here once you export it from your simulation:
 **Upright recovery demo**  
 ![20250923_191658_Final_Best](https://github.com/user-attachments/assets/fc69c374-b3eb-4ab3-97b3-08cce76478bf)
@@ -68,19 +68,13 @@ Add your media here once you export it from your simulation:
 <img width="800" height="250" alt="image" src="https://github.com/user-attachments/assets/0c644767-389e-4fa9-9e7f-bbcb1f42f0b7" />
 
 
-## Implementation Notes
-- **Termination + shaping** order matters; apply shaping **only** while upright to avoid rewarding spins.
-- Keep output `F` bounded and scale to your simulator’s units.
-- Start with a small hidden layer; too big slows the GA and increases local minima density.
-- Log **best-in-generation** scores and **moving best** to detect plateaus (trigger the exploration kick).
-
 ## What I Learned
-- Multiplicative reward shaping can **dramatically** reduce “fake progress” from unstable behaviors.
+- Multiplicative reward shaping can **dramatically** reduce “fake progress” from unstable or unwanted behaviors.
 - **Novelty + immigrants** is a simple, effective cure for early stagnation.
 - Evaluating across **multiple initializations** is essential for controllers that **transfer** beyond a single setup—very relevant for TVC-like systems.
 
 ## Next Steps
 - Try **CMA-ES** or **policy gradients** as a comparison baseline.
-- Add **actuator limits** and friction to increase realism.
-- Port controller to a **TVC gimbal sim** with similar state/action design.
+- Add **actuator limits** and friction according to a real life device.
+- Add small perturbations to check robustness.
 
