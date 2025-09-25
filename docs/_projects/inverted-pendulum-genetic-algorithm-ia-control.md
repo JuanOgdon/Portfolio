@@ -1,4 +1,4 @@
----
+﻿---
 title: "Inverted Pendulum — Genetic Algorithm + Neural Network Control"
 date: 2025-09-24
 tags: [controls, RL, genetic-algorithm, python, simulation, manim]
@@ -56,13 +56,13 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 ## Results (placeholders)
 Add your media here once you export it from your simulation:
 **Upright recovery demo**  
-![](docs/assets/images/animation.gif)
+![]({{ "/assets/images/animation.gif" | relative_url }})
 
 **State values**  
-![](docs/assets/images/figure_2.png)
+![]({{ "/assets/images/figure_2.png" | relative_url }})
 
 **Scoring function**  
-![](docs/assets/images/figure_3.png)
+![]({{ "/assets/images/figure_3.png" | relative_url }})
 
 ## Implementation Notes
 - **Termination + shaping** order matters; apply shaping **only** while upright to avoid rewarding spins.
@@ -79,3 +79,4 @@ Add your media here once you export it from your simulation:
 - Try **CMA-ES** or **policy gradients** as a comparison baseline.
 - Add **actuator limits** and friction to increase realism.
 - Port controller to a **TVC gimbal sim** with similar state/action design.
+
