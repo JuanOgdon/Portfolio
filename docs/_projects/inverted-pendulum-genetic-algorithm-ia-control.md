@@ -56,7 +56,7 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 ## Results (placeholders)
 Add your media here once you export it from your simulation:
 **Upright recovery demo**  
-![]({{ "/assets/images/animation.gif" | relative_url }})
+![]({{ "docs/assets/images/animation.gif" | relative_url }})
 
 **State values**  
 ![]({{ "/assets/images/figure_2.png" | relative_url }})
