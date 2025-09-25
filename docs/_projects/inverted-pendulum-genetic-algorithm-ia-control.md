@@ -63,7 +63,8 @@ Add your media here once you export it from your simulation:
 
 
 **Scoring function**  
-![](/assets/images/figure_3.png)
+<img width="800" height="250" alt="image" src="https://github.com/user-attachments/assets/0c644767-389e-4fa9-9e7f-bbcb1f42f0b7" />
+
 
 ## Implementation Notes
 - **Termination + shaping** order matters; apply shaping **only** while upright to avoid rewarding spins.
