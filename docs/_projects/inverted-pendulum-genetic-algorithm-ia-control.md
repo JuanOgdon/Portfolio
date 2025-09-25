@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Inverted Pendulum — Genetic Algorithm + Neural Network Control"
 date: 2025-09-24
 tags: [controls, RL, genetic-algorithm, python, simulation, manim]
