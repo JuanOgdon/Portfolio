@@ -59,7 +59,8 @@ Add your media here once you export it from your simulation:
 ![](/assets/images/animation.gif)
 
 **State values**  
-![](/assets/images/figure_2.png)
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/8d7f0de8-90ee-4c94-abd7-2de943a3dc25" />
+
 
 **Scoring function**  
 ![](/assets/images/figure_3.png)
