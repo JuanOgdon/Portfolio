@@ -1,8 +1,19 @@
 title: Juan Ogdon — Portfolio
 theme: minima
-description: Portfolio of projects in aerospace engineering, controls, CFD, and simulation.
+description: Portfolio of aerospace engineering projects — controls, CFD, simulation (Python/MATLAB/Simulink/OpenFOAM), mechanisms, and hardware prototyping.
 markdown: kramdown
 permalink: pretty
+
+# Define collections
 collections:
   projects:
     output: true
+    permalink: /projects/:name/
+
+# Navigation (optional)
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: default
