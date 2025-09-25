@@ -56,7 +56,8 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 ## Results (placeholders)
 Add your media here once you export it from your simulation:
 **Upright recovery demo**  
-<img width="800" height="300" alt="image" src="https://github.com/user-attachments/assets/7b7fba99-aeca-4f12-a4c2-6d4356f6ad6e" />
+![20250923_191658_Final_Best](https://github.com/user-attachments/assets/fc69c374-b3eb-4ab3-97b3-08cce76478bf)
+
 
 
 **State values**  
