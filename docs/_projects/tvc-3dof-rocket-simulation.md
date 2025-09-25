@@ -2,17 +2,17 @@
 layout: page
 title: "TVC Rocket Simulation — 3-DOF (planar) with Guidance & PID Control"
 date: 2025-09-24
-tags: [controls, guidance, simulink, tvc, aerodynamics, openrocket, rasaero]
-status: finished
+tags: [controls, guidance, simulink, tvc, aerodynamics]
+status: in-progress
 summary: "Planar 3-DOF rocket simulator in Simulink with thrust-vector control, aero forces/moments, actuator limits, waypoint guidance, and PID."
 ---
 
 ## TL;DR
-- **Goal:** Build a realistic 3-DOF (x–z translation + pitch) TVC rocket sim to study attitude control and guidance.  
-- **Plant:** Simulink 3DOF (body axes), with **thrust vectoring**, **drag**, **lift**, **aero moment**, density varying with altitude, and **nozzle misalignment**.  
-- **Data:** Mass/inertia/CP-CG lever from **OpenRocket**; \(C_L(\alpha), C_D(\alpha)\) from **RASAero II** (fit to functions).  
-- **Control:** Waypoint guidance → error → **PID** (Ziegler-Nichols seed + manual refinement); **gimbal angle/rate** limits.  
-- **Results:** Correct drag behavior (lower apogee), passive aero stability (α→0), two-waypoint run with final errors ≈ **0.38 m** and **2.28 m** at WP1/WP2, respectively. :contentReference[oaicite:0]{index=0}
+- **Goal:** Build a realistic 3-DOF (x–z + pitch) TVC rocket sim to study attitude control and guidance.
+- **Plant:** Simulink 3DOF (body axes) with **thrust vectoring**, **drag**, **lift**, **aero moment**, and altitude-varying density; includes **nozzle misalignment**.
+- **Data:** Mass/inertia and CP–CG lever from OpenRocket; \(C_L(\alpha)\), \(C_D(\alpha)\) fitted from RASAero II.
+- **Control:** Waypoint guidance → error → **PID** (Ziegler–Nichols seed + manual tuning); **gimbal angle/rate** limits.
+- **Results:** Two-waypoint run with final miss ≈ **<0.5 m** (WP1) and **<1 m** (WP2).
 
 ---
 
