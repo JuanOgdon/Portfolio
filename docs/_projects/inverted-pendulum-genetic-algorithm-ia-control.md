@@ -55,14 +55,14 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 
 ## Results (placeholders)
 Add your media here once you export it from your simulation:
-- **Upright recovery demo**  
-  ![]({{ '/assets/images/animation.gif' | relative_url }})
+**Upright recovery demo**  
+![]({{ '/assets/images/animation.gif' | relative_url }})
 
-- **State values**  
-  ![]({{ '/assets/images/figure_2.png' | relative_url }})
+**State values**  
+![]({{ '/assets/images/figure_2.png'  | relative_url }})
 
-- **Scoring function**  
-  ![]({{ '/assets/images/figure_3.png' | relative_url }})
+**Scoring function**  
+![]({{ '/assets/images/figure_3.png'  | relative_url }})
 
 ## Implementation Notes
 - **Termination + shaping** order matters; apply shaping **only** while upright to avoid rewarding spins.
