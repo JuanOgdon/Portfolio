@@ -4,7 +4,7 @@ Welcome! I'm an aerospace engineering student interested in controls, CFD, simul
 
 -  **Live site:** enabled via GitHub Pages in `/docs`
 -  **Projects index:** see [`docs/_projects`](docs/_projects)
--  **Resume:** [`/resume/Juan_Ogdon_Resume.pdf`](resume/Juan_Ogdon_Resume.pdf)
+-  **Resume:** [`/resume/Resume English.pdf`](resume/Resume English 09-25.pdf)
 -  **Interests and focus:** MATLAB · Simulink · Controls · Python · Manim · Flight Dynamics · OpenFOAM · CFD · Rocketry
 
 ## Highlights
