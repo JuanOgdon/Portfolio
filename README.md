@@ -2,10 +2,10 @@
 
 Welcome! I'm an aerospace engineering student interested in controls, CFD, simulation (Python/Matlab/Simulink/Manim), and hardware prototyping. This repo is the **source of truth** for my public projects and the code behind my portfolio site (GitHub Pages).
 
-- 🌐 **Live site:** enabled via GitHub Pages in `/docs`
-- 📚 **Projects index:** see [`/projects`](projects)
-- 📄 **Resume:** [`/resume/Juan_Ogdon_Resume.pdf`](resume/Juan_Ogdon_Resume.pdf)
-- 🧪 **Tech focus:** MATLAB · Simulink · Controls · Python · Manim · Flight Dynamics · OpenFOAM · CFD · Rocketry
+-  **Live site:** enabled via GitHub Pages in `/docs`
+-  **Projects index:** see [`/projects`](projects)
+-  **Resume:** [`/resume/Juan_Ogdon_Resume.pdf`](resume/Juan_Ogdon_Resume.pdf)
+-  **Interests and focus:** MATLAB · Simulink · Controls · Python · Manim · Flight Dynamics · OpenFOAM · CFD · Rocketry
 
 ## Highlights
 - 🛰️ **CubeSat Solar Panel Release Mechanism** — design, test data analysis, and conference presentation (IAA).
