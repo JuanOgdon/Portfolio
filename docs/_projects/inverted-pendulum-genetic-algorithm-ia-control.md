@@ -43,7 +43,7 @@ I designed the score to **strongly prefer true stabilization** over “lucky spi
 ## Escaping Local Maxima (Exploration Strategy)
 Early runs often got stuck in **local optima**. I added:
 - **Novelty-driven selection** + **many immigrants** in early generations to map the parameter space widely and keep diverse candidates alive.
-- **Adaptive exploration kick**: if **no fitness improvement** for ~30 generations, **increase mutation σ** and the **immigrant fraction** temporarily to jump out of plateaus.
+- **Adaptive exploration kick**: if **no fitness improvement** for ~30 generations, **increase mutation σ** and the **immigrant fraction** temporarily to jump out of plateaus. This changed later on in the simulation to a **decrease in mutation** and **immigrant count** in order to focus on **exploitation** and move away from **exploration**
 
 ## Robustness via Multi-Start Simulation
 To avoid overfitting to a single initial condition, **each generation evaluates individuals 3×** with slightly perturbed starts (Gaussian noise around the pendulum’s down position).  
