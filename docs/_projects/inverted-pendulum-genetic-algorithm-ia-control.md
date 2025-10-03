@@ -83,5 +83,4 @@ A good, robust control is appreciated for multiple, and not so friendly, impulse
 ## Next Steps
 - Try **CMA-ES** or **policy gradients** as a comparison baseline.
 - Add **actuator limits** and friction according to a real life device.
-- Add small perturbations to check robustness.
 
