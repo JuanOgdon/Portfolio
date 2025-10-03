@@ -51,7 +51,6 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 - This improved generalization and reduced brittle, over-specialized policies.
 
 ## Results
-Add your media here once you export it from your simulation:
 **Upright recovery demo**  
 ![20250923_191658_Final_Best](https://github.com/user-attachments/assets/fc69c374-b3eb-4ab3-97b3-08cce76478bf)
 
