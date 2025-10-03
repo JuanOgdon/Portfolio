@@ -64,11 +64,22 @@ Add your media here once you export it from your simulation:
 **Scoring function**  
 <img width="800" height="250" alt="image" src="https://github.com/user-attachments/assets/0c644767-389e-4fa9-9e7f-bbcb1f42f0b7" />
 
+## Perturbations Added
+
+After training, i added perturbations to see how the system reacted. Im planning to add an arrow to make it more visible, but one can easily notice when the impulse is applied.
+A good, robust control is appreciated for multiple, and not so friendly, impulses; confirming the desired behaviour of the system.
+
+**Perturbated demo**
+![20251002_212526_Final_Best](https://github.com/user-attachments/assets/9434ac34-6887-4894-b320-81a40cdbd777)
+
+
 
 ## What I Learned
 - Multiplicative reward shaping can **dramatically** reduce “fake progress” from unstable or unwanted behaviors.
 - **Novelty + immigrants** is a simple, effective cure for early stagnation.
 - Evaluating across **multiple initializations** is essential for controllers that **transfer** beyond a single setup—very relevant for TVC-like systems.
+- Robustness behaved as expected: scoring each candidate across **3 randomized starts** yielded stable policies—no disturbance injection needed during training.
+
 
 ## Next Steps
 - Try **CMA-ES** or **policy gradients** as a comparison baseline.
