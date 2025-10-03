@@ -68,7 +68,7 @@ To avoid overfitting to a single initial condition, **each generation evaluates 
 After training, i added perturbations to see how the system reacted. Im planning to add an arrow to make it more visible, but one can easily notice when the impulse is applied.
 A good, robust control is appreciated for multiple, and not so friendly, impulses; confirming the desired behaviour of the system.
 
-**Perturbated demo**
+**Perturbated demo**  
 ![20251002_212526_Final_Best](https://github.com/user-attachments/assets/9434ac34-6887-4894-b320-81a40cdbd777)
 
 
