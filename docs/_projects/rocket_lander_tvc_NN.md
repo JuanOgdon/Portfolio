@@ -1,128 +1,260 @@
-# Rocket Landing with a GA-Evolved Tiny Neural Network (Adaptive Curriculum)
+# Rocket Landing with a GA-Evolved Tiny Neural Network (Adaptive Curriculum + Anti-Exploit Fitness)
 
-This project explores how far you can push a very small neural network controller when the training process is engineered carefully. A 2D rocket must perform controlled maneuvering and then achieve a strict touchdown, starting from randomized initial conditions so the policy must generalize rather than memorize a single trajectory.
+This project is a deep dive into *training engineering*: how to make a very small neural network learn a surprisingly complex control task by designing the fitness function, curriculum, evaluation procedure, and exploration strategy carefully.
+
+The task is a simplified 2D rocket landing problem (planar motion + attitude): stabilize, maneuver toward a target, manage velocity, and perform a strict touchdown. The controller is evolved via a Genetic Algorithm (GA), and it is trained under **randomized initial conditions** so the resulting behavior must generalize rather than memorize a single trajectory.
 
 > Replace these placeholders with your media:
 >
-> ![Training montage](assets/training_montage.gif)  
+> ![Stage progression](assets/stage_progression.gif)  
 > ![Successful landing](assets/success_landing.gif)  
-> ![Robustness test](assets/robustness_random_starts.gif)
+> ![Robustness montage](assets/robustness_random_starts.gif)  
 
 ---
 
 ## What I built
 
-A minimal neural controller was evolved using a Genetic Algorithm (GA) to land a rocket in simulation. The focus was not “throw a bigger model at it”, but instead designing:
-- a fitness function that cannot be easily exploited,
-- a staged training process that gradually increases difficulty,
-- and robustness mechanisms that force generalization across randomized starts.
+A complete training loop for evolving a minimal neural controller that can:
+- recover attitude (keep the rocket upright),
+- translate toward the landing pad (near the origin),
+- reduce velocities in a controlled way *at the right time*,
+- and satisfy a **strict landing definition** at touchdown.
 
-The end goal was a controller that can repeatedly land under strict criteria, not just “look stable”.
-
----
-
-## Core idea: a 200-point fitness that separates maneuvering from landing
-
-I split performance into two clearly interpretable parts:
-- 100 points for high-quality maneuvering (stable, centered, controlled speeds, efficient thrust usage)
-- 100 points for a strict landing (touchdown only counts if multiple thresholds are simultaneously satisfied)
-
-This keeps learning structured: first behave well in the air, then prove you can actually land.
+The key theme here is that the “cleverness” lives in the training design:
+- a fitness function that is interpretable, shaped, and resistant to reward hacks,
+- a staged curriculum that gradually introduces complexity,
+- adaptive difficulty scaling to prevent training collapse at stage boundaries,
+- and GA techniques to avoid getting stuck in local optima and premature convergence.
 
 ---
 
-## Maneuvering score (0–100): shaped, gated, and hard to game
+## Controller concept (kept intentionally small)
 
-The maneuvering reward is accumulated throughout the episode and built from four components:
+The controller is a tiny feedforward neural network (MLP) that maps the rocket state to two actions:
+- **throttle** (how much thrust to apply),
+- **gimbal** (TVC direction / tilt command).
 
-1) Uprightness  
-Encourages small angle and angular velocity. This is the foundation: if the rocket isn’t upright, nothing else matters.
+Inputs capture the essential dynamics (position, velocity, attitude, angular rate). The small architecture is a deliberate constraint: it forces the solution to come from good reward/curriculum design instead of brute-force capacity.
 
-2) Position near the target  
-A Gaussian-shaped reward centered at the pad (near the origin). This term is gated: it only “pays” when the vehicle is sufficiently upright. That prevents sideways drifting while tilted from being rewarded.
-
-3) Low velocity (especially near the pad)  
-Another Gaussian-shaped reward on velocities. This is gated even more strictly: it only counts when the rocket is upright and already near the landing region. That prevents “reward hacking” where the agent learns to kill velocity far away and then falls back uncontrolled.
-
-4) Fuel / actuation penalty  
-A small penalty discourages excessive throttle usage. This helps avoid high-thrust oscillations that look energetic but are unstable or inefficient.
-
-The key design lesson here: gating and normalization matter. Without gates, a policy can accumulate reward in unintended states (fake progress). With gates, the reward naturally enforces an order of operations:
-stabilize attitude → move toward target → slow down near the pad.
+A side benefit: it’s very portfolio-friendly because the system is explainable and shows strong engineering decisions rather than “bigger model = better”.
 
 ---
 
-## Landing score (+100): intentionally strict touchdown definition
+## Core idea: a structured 200-point fitness (100 maneuvering + 100 landing)
 
-The landing bonus is only granted if the rocket meets a set of simultaneous constraints at contact. Criteria include:
+I designed the fitness to be interpretable and to guide learning in the right order:
 
-- angle small enough (upright at touchdown)
-- angular velocity small enough (no spin at contact)
-- x position within a tight band around the pad
-- x velocity small enough (no lateral slide)
-- y velocity small enough (soft descent rate)
-- y position consistent with true ground contact (not “almost touching”)
+- **Maneuvering (0–100 points):** reward “good flight behavior” continuously across the episode.
+- **Landing (+100 points):** reward only if strict touchdown criteria are met.
 
-A big emphasis in this project was strictness: near-misses are not counted as “pretty good”. This forces the controller to learn real stability and a controlled final approach.
+This creates a clear training message:
+1) learn stable, controlled behavior in the air,
+2) then prove you can stick the landing under strict constraints.
 
----
-
-## Anti-exploit detail: preventing “hovering beats landing”
-
-A common failure mode with shaped rewards is learning to hover near the ground to farm points instead of committing to touchdown. To prevent that, I added logic that makes successfully landing more valuable than extending the episode for extra shaping reward. The result is that the best strategies converge toward decisive, controlled landings rather than indefinite hovering.
+It also helps debug the training: if a policy gets ~80 maneuvering points but never lands, I know it’s behaving well but failing the final approach. If it gets low maneuvering points, it’s unstable or drifting.
 
 ---
 
-## Training strategy: 3 stages + adaptive difficulty scaling
+## Maneuvering reward (0–100): shaped, gated, and intentionally hard to exploit
 
-Instead of training the hardest version from the start, I used a curriculum:
+The maneuvering score is accumulated step-by-step and combines four components:
 
-Stage 1 — basic descent and touchdown  
-Starts are randomized in position but kept relatively “friendly” (minimal disturbances). The goal is to learn the landing concept.
+### 1) Uprightness (“attitude quality”)
+This term rewards keeping:
+- small angle (upright),
+- small angular velocity (no spinning / oscillating).
 
-Stage 2 — introduce attitude disturbance  
-Adds randomized initial tilt so the controller must learn recovery plus descent control.
+This is the foundational behavior: if the rocket is tumbling, position and velocity rewards shouldn’t matter.
 
-Stage 3 — full randomized starts  
-Adds broader randomness: wider x offsets, varying altitudes, randomized velocities, and angular rate. This is where robustness is built.
+### 2) Position near the target (Gaussian around the origin)
+This term rewards being near the landing pad using a Gaussian-shaped score centered at `(x, y) = (0, target_altitude)` or near ground depending on the phase of descent.
 
-### Adaptive difficulty (the turning point)
-Even with stages, sometimes the jump to the next difficulty band was too large. So I implemented an adaptive rule:
+Crucial detail: **this term is gated by uprightness**.
+- If the rocket is not sufficiently upright, it doesn’t get paid for drifting toward the target.
+- This prevents learning “sideways sliding” or unstable approaches that still happen to move toward the origin.
 
-- if the controller achieves 10 successful landings in a row,
-- with randomized starting states,
-- then difficulty increases by a chosen factor (e.g., +20%).
+### 3) Velocity control (Gaussian on vx, vy)
+This rewards low velocity (especially near the landing region).
 
-This “success streak → difficulty step” rule guided learning smoothly and avoided the classic brick-wall transition where training collapses after a stage change.
+Crucial detail: **this term is gated by two conditions**:
+- the rocket must be upright enough, and
+- it must be close enough to the landing region.
 
-Because starts are randomized, “10 landings in a row” becomes a robustness filter, not luck.
+This prevents a very common reward hack: “slow down far away, then fall uncontrolled later”. The reward structure enforces the natural order:
+- stabilize attitude,
+- move toward the target,
+- only then aggressively kill velocity near the pad.
+
+### 4) Fuel / excessive actuation penalty
+A small penalty discourages wasting fuel or using high throttle constantly. This typically improves smoothness and reduces oscillatory “bang-bang-ish” behavior that might look energetic but is less stable.
+
+### Why the gating matters (the real lesson)
+Without gating, the GA often discovers shortcuts:
+- being stable but drifting far away while farming uprightness,
+- slowing down far from the pad,
+- or oscillating thrust to accumulate shaping reward without converging to landing.
+
+With gating, the reward becomes *state-dependent*: you only get paid for the “next” objective once the “previous” objective is reasonably satisfied. That’s one of the most important insights from this project.
 
 ---
 
-## GA learning lessons: keeping evolution from stagnating
+## Landing bonus (+100): strict touchdown definition (deliberately unforgiving)
 
-Genetic search is powerful, but it can stagnate. To keep exploration healthy I used standard but very effective techniques:
-- elitism (preserve the best)
-- mutation + crossover tuning
-- injecting new random individuals (“immigrants”) to restore diversity
-- evaluating performance across multiple randomized starts to avoid overfitting
+A landing is only counted as successful if multiple criteria are met simultaneously at contact, including:
 
-The big takeaway: GA performance depends as much on evaluation design and diversity maintenance as on the neural network itself.
+- **angle**: must be close to upright,
+- **angular velocity**: must be small (no rotation at touchdown),
+- **x position**: must be close to pad center,
+- **x velocity**: must be small (no lateral sliding),
+- **y velocity**: must be small (soft descent),
+- **y position/contact condition**: must represent real ground contact, not “almost touched”.
+
+This strictness is intentional. It turns landing into a discrete achievement that can’t be faked by “almost good” behavior. In practice, this forces the policy to learn a stable final approach and not just a visually plausible descent.
 
 ---
 
-## What I learned (portfolio highlights)
+## Anti-exploit mechanism: making landing strictly better than hovering
 
-- Reward shaping is engineering: gating, normalization, and anti-exploit logic can be the difference between real learning and fake progress.
-- Strict success criteria matter: a hard landing definition produces genuinely stable controllers.
-- Curriculum learning is not just a convenience; adaptive difficulty can be a critical mechanism to bridge learning gaps.
-- Robustness can be trained implicitly by randomizing starts and evaluating across multiple initializations, even without explicitly injecting disturbances.
-- Small networks can work surprisingly well when the training process is designed with care.
+A common failure mode in shaped-reward control tasks is that the agent learns to hover near the ground to keep accumulating maneuvering reward rather than landing.
+
+To eliminate that exploit, I implemented a simple but powerful trick:
+
+- **When a successful landing occurs, the agent receives the +100 landing bonus**
+- **plus the maximum maneuvering reward it *could have earned* for the remaining steps of the episode**
+
+In other words: once you land, the episode becomes “as if you kept being perfect until the end” in terms of maneuvering points.
+
+Why this works:
+- If hovering near the ground could earn extra maneuvering points, it might beat landing.
+- With this finish bonus, landing immediately dominates: you can’t do better by delaying touchdown.
+- So the optimal strategy becomes: *land as soon as you can do it safely under the strict criteria*.
+
+This one detail dramatically reduces reward hacking and makes training converge faster.
+
+---
+
+## Curriculum learning: 3 stages with explicit differences
+
+The landing task has a classic difficulty pattern:
+- learning attitude stabilization is already non-trivial,
+- translating toward the target adds coupling,
+- and the final seconds require precision and timing.
+
+So I trained through three stages, each adding complexity and broadening generalization:
+
+### Stage 1 — “Learn the concept of landing” (friendly initial conditions)
+Goal: teach the policy the basic structure of “stabilize → descend → touch down”.
+
+Typical characteristics:
+- randomized horizontal offset (start not perfectly centered),
+- relatively fixed or narrow-band altitude,
+- minimal or no initial tilt,
+- minimal or no initial velocities and angular rate.
+
+Why: if you start with full randomness, the search space is huge and GA tends to converge to trivial local maxima (e.g., “don’t crash immediately” or “reduce spin a little”). Stage 1 gives the controller a learnable pathway.
+
+### Stage 2 — “Recover attitude disturbances” (introduce tilt)
+Goal: force the policy to learn correction dynamics, not just gentle descent.
+
+Added difficulty:
+- randomized initial attitude (tilt) around upright.
+
+Effect:
+- the policy must now allocate thrust and gimbal not only to slow descent but to recover orientation early enough to enable the later reward gates (position/velocity gates).
+
+This stage often creates a new local maximum: “over-correcting tilt with aggressive thrust”, which looks like progress but prevents landing. Reward gating + curriculum helps escape that.
+
+### Stage 3 — “Robustness and generalization” (full randomized starts)
+Goal: make the policy robust across a wide variety of scenarios.
+
+Added difficulty:
+- wider horizontal offsets,
+- randomized altitude (start higher or lower),
+- randomized velocities (vx, vy),
+- randomized angular rates (omega),
+- overall broader distributions.
+
+This stage is where the controller stops being a staged demo and becomes a general solution. It is also where local maxima are most common (e.g., “stabilize but never commit”, “hover and drift”, “hard brake too early then drop”).
+
+---
+
+## Adaptive difficulty scaling (what made stage transitions actually work)
+
+Even with stages, a sudden jump in randomness can destroy performance. So instead of switching difficulty like a binary flag, I used an adaptive rule:
+
+- Track **success streak** (consecutive successful landings).
+- If the agent achieves **10 landings in a row** (with randomized starts),
+- then increase the difficulty by a factor (e.g., +20% difficulty scaling).
+- Repeat until reaching full difficulty for that stage, then move to the next stage.
+
+Why 10 in a row matters:
+- Because starts are randomized, the streak is a robustness test.
+- A single “lucky landing” doesn’t advance difficulty; consistent performance does.
+
+This mechanism effectively creates a smooth ramp from easy to hard, preventing the GA from repeatedly collapsing when the environment distribution shifts.
+
+---
+
+## GA training: escaping local maxima and maintaining exploration
+
+Genetic algorithms are powerful for sparse-reward control, but they are vulnerable to premature convergence and local maxima. This project taught me how to *engineer* GA exploration so it keeps discovering better behaviors:
+
+### Typical local maxima I ran into
+- “Don’t crash immediately” (survive longer without true control).
+- “Stabilize attitude only” (uprightness farming, no translation).
+- “Approach the target but too fast” (fails strict landing criteria).
+- “Hover forever near the pad” (reward shaping exploit, fixed by finish bonus).
+- “Kill velocity too early far away” (fixed by velocity gating near the pad).
+
+### How I overcame them
+- **Reward gating**: prevents shortcut behaviors from scoring highly.
+- **Finish bonus**: removes the hover exploit entirely.
+- **Curriculum + adaptive difficulty**: provides a continuous learning path instead of a cliff.
+- **Diversity injections (“immigrants”)**: reintroduces exploration when the population collapses to a mediocre strategy.
+- **Multi-start evaluation**: forces robustness and prevents overfitting to a single initial condition.
+- **Tuning exploration/exploitation**: adjusting mutation strength and diversity mechanisms to keep progress stable without randomizing away good solutions.
+
+The main insight: the GA is only as good as the evaluation and reward design. Once those are engineered well, even a tiny network can learn complex control quickly and reliably.
+
+---
+
+## What I learned (expanded, engineering-focused)
+
+- How to design reward shaping that is *aligned with the real objective*:
+  - I learned that shaping terms must be gated and normalized, otherwise the agent optimizes the wrong thing (fake progress).
+  - A good reward is not just “more terms”; it’s the correct structure and conditionality.
+
+- How to eliminate reward exploits proactively:
+  - The finish-bonus landing trick (landing gives +100 plus max remaining maneuvering points) made landing strictly optimal vs. hovering.
+  - This is a general lesson: if the objective is terminal, ensure the reward landscape makes the terminal condition dominate.
+
+- How to guide learning through “hard” solution spaces:
+  - The landing task has multiple coupled requirements that are hard to learn simultaneously.
+  - Staging (1→2→3) reduced the dimension of the search at each step.
+  - Adaptive difficulty turned discrete stage jumps into a smooth ramp.
+
+- How to handle local maxima systematically:
+  - I learned to *identify* what local optimum the population is stuck in (attitude-only, hover, slow-down-far-away, etc.).
+  - Then I modified either the fitness structure (gates/bonuses) or the training distribution (curriculum/adaptive difficulty) to reshape the landscape so the GA “sees” a better path.
+
+- How to build robustness without brute force:
+  - Randomized initial conditions and multi-start evaluation implicitly trained generalization.
+  - Requiring a 10-landing streak before increasing difficulty made robustness part of the training objective, not an afterthought.
+
+- How to balance exploration and exploitation in evolutionary learning:
+  - Too little exploration → premature convergence to mediocre behavior.
+  - Too much exploration → unstable progress and loss of good individuals.
+  - I learned practical ways to control this (elitism + diversity injection + mutation tuning) to keep learning fast, stable, and effective.
+
+- How to make small models do serious work:
+  - Keeping the network tiny forced me to solve the real challenge: training design.
+  - This is directly transferable to real GNC problems, where constraints and robustness matter more than raw model size.
 
 ---
 
 ## Media
 
-- Controlled descent + touchdown (best policy): `assets/success_landing.gif`
-- Randomized start robustness montage: `assets/robustness_random_starts.gif`
-- Stage progression comparison (Stage 1 → 2 → 3): `assets/stage_progression.gif`
+- Stage comparison (1 → 2 → 3): `assets/stage_progression.gif`
+- Best policy touchdown: `assets/success_landing.gif`
+- Robustness montage (random starts): `assets/robustness_random_starts.gif`
+- “Hard starts” showcase: `assets/hard_starts_compilation.mp4`
