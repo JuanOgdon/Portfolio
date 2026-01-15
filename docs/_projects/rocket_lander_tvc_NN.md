@@ -4,12 +4,6 @@ This project is a deep dive into *training engineering*: how to make a very smal
 
 The task is a simplified 2D rocket landing problem (planar motion + attitude): stabilize, maneuver toward a target, manage velocity, and perform a strict touchdown. The controller is evolved via a Genetic Algorithm (GA), and it is trained under **randomized initial conditions** so the resulting behavior must generalize rather than memorize a single trajectory.
 
-> Replace these placeholders with your media:
->
-> ![Stage progression](assets/stage_progression.gif)  
-> ![Successful landing](assets/success_landing.gif)  
-> ![Robustness montage](assets/robustness_random_starts.gif)  
-
 ---
 
 ## What I built
@@ -28,7 +22,7 @@ The key theme here is that the “cleverness” lives in the training design:
 
 ---
 
-## Controller concept (kept intentionally small)
+## Controller concept 
 
 The controller is a tiny feedforward neural network (MLP) that maps the rocket state to two actions:
 - **throttle** (how much thrust to apply),
@@ -218,7 +212,7 @@ The main insight: the GA is only as good as the evaluation and reward design. On
 
 ---
 
-## What I learned (expanded, engineering-focused)
+## What I learned
 
 - How to design reward shaping that is *aligned with the real objective*:
   - I learned that shaping terms must be gated and normalized, otherwise the agent optimizes the wrong thing (fake progress).
