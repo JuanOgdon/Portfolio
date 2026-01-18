@@ -1,5 +1,8 @@
 
-https://github.com/user-attachments/assets/cd73ac90-11d1-4f68-a1d0-d70a9b1de295
+
+
+https://github.com/user-attachments/assets/f1f23aa8-7870-43fb-b047-652b6a8c29a0
+
 # Rocket Landing with a GA-Evolved Tiny Neural Network (Adaptive Curriculum + Anti-Exploit Fitness)
 
 This project is a deep dive into *training engineering*: how to make a very small neural network learn a surprisingly complex control task by designing the fitness function, curriculum, evaluation procedure, and exploration strategy carefully.
@@ -251,18 +254,14 @@ The main insight: the GA is only as good as the evaluation and reward design. On
 ## Media
 
 
-https://github.com/user-attachments/assets/e0172e93-3c56-45bc-9fe1-80be31726eb5
+https://github.com/user-attachments/assets/a05099cf-a94b-4d82-8455-4a870bab3838
 
 
 
-https://github.com/user-attachments/assets/35b849d1-db84-40e9-be38-761b2ad8e9ed
+https://github.com/user-attachments/assets/9977a768-ee6f-4e35-8d0b-69e70fc36c85
 
 
 
-https://github.com/user-attachments/assets/276238d1-d6e8-44ae-adab-00986559f396
+https://github.com/user-attachments/assets/928a4397-dd7d-46b2-9e30-25e71b05c4eb
 
 
-- Stage comparison (1 → 2 → 3): `assets/stage_progression.gif`
-- Best policy touchdown: `assets/success_landing.gif`
-- Robustness montage (random starts): `assets/robustness_random_starts.gif`
-- “Hard starts” showcase: `assets/hard_starts_compilation.mp4`
