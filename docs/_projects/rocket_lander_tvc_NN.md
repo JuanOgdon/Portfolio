@@ -1,7 +1,10 @@
 
 
 
-https://github.com/user-attachments/assets/f1f23aa8-7870-43fb-b047-652b6a8c29a0
+
+https://github.com/user-attachments/assets/11bee00c-bcda-4e80-bbcb-72c5a6000001
+
+
 
 # Rocket Landing with a GA-Evolved Tiny Neural Network (Adaptive Curriculum + Anti-Exploit Fitness)
 
@@ -254,14 +257,16 @@ The main insight: the GA is only as good as the evaluation and reward design. On
 ## Media
 
 
-https://github.com/user-attachments/assets/a05099cf-a94b-4d82-8455-4a870bab3838
 
 
 
-https://github.com/user-attachments/assets/9977a768-ee6f-4e35-8d0b-69e70fc36c85
+https://github.com/user-attachments/assets/9390ee62-759d-4c4b-8b51-e77675bd125a
+
+
+https://github.com/user-attachments/assets/5857608e-6910-49c2-8804-206e8f0c63e6
 
 
 
-https://github.com/user-attachments/assets/928a4397-dd7d-46b2-9e30-25e71b05c4eb
+https://github.com/user-attachments/assets/bccf92a4-680f-49c7-8b5a-71e217fa9f4d
 
 
