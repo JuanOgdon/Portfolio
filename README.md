@@ -15,5 +15,8 @@ This repository is the **source of truth** for my public projects and also power
 Video featuring latest project:
 
 
-https://github.com/user-attachments/assets/0e8224ea-935d-4836-806c-d3f83699c2ac
+
+
+https://github.com/user-attachments/assets/d90c3fee-a473-426d-8a0d-19b4db66f8fb
+
 
