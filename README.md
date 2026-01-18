@@ -7,7 +7,13 @@ This repository is the **source of truth** for my public projects and also power
 
 ## 🔗 Quick Links
 -  **Projects:** [`docs/_projects`](docs/_projects)
+-  **LATEST Project:** [`docs/_projects`](docs/_projects)
 -  **Resume (PDF):** [`resume/Resume_Juan_Ogdon.pdf`](Resume_Juan_Ogdon.pdf)
 -  **LinkedIn:** [https://www.linkedin.com/in/juanogdon/](https://www.linkedin.com/in/juan-ignacio-ogdon/)
 -  **Contact:** [juanogdon@gmail.com](juanogdon@gmail.com)
+
+Video featuring latest project:
+
+
+https://github.com/user-attachments/assets/0e8224ea-935d-4836-806c-d3f83699c2ac
 
