@@ -32,6 +32,14 @@ I've been teaching mathematics and physics since 2019, and I'm currently a Teach
 - **LinkedIn:** [linkedin.com/in/juanogdon](https://www.linkedin.com/in/juan-ignacio-ogdon/)
 - **Contact:** juanogdon@gmail.com
 
+
+## Video demo of cool project
+
+
+
+https://github.com/user-attachments/assets/4d74fd9a-b3b1-4896-b855-46148441fc97
+
+
 ---
 
 *Seeking graduate research opportunities in advanced control, genetic algorithms, and AI-based autonomous systems.*
