@@ -44,7 +44,7 @@ The required heat was calculated via Joule heating and calorimetry: 7.15 J at 1.
 
 My work spanned the full physical development cycle:
 
-**3D design and printing.** The hinge parts and the structural support rails for the test setup were designed in Solid Edge and manufactured by FDM additive manufacturing in PLA. The CAD models for both hinge types were built to match final assembled tolerances — and per the paper's conclusion, they matched what was built precisely.
+**3D design and printing.** The hinge parts and the structural support rails for the test setup were designed in Fusion 360 and manufactured by FDM additive manufacturing in PLA. The CAD models for both hinge types were built to match final assembled tolerances — and per the paper's conclusion, they matched what was built precisely.
 
 **Assembly.** I assembled the test structure — an aluminum frame replicating the 3U CubeSat envelope, with four hollow panels fixed to supports, stiffened by the printed PLA rails. The hinges and spring assemblies were integrated onto the structure along with the panel models.
 
