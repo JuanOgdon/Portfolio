@@ -1,4 +1,12 @@
-https://github.com/JuanOgdon/Portfolio/assets/201483014/11bee00c-bcda-4e80-bbcb-72c5a6000001
+
+
+
+
+
+https://github.com/user-attachments/assets/a3ba9928-0788-481b-a9e2-bfbf783275e5
+
+
+
 
 # Rocket Landing with a GA-Evolved Tiny Neural Network (Adaptive Curriculum + Anti-Exploit Fitness)
 
@@ -137,6 +145,9 @@ The fix replaced the hard constraint with a penalty: `w_reignition × n_reigniti
 
 ## Curriculum learning: 4 stages with explicit differences
 
+<img width="970" height="635" alt="IC" src="https://github.com/user-attachments/assets/88a9fdb1-33b4-417f-a647-efd8250497ee" />
+
+
 ### Stage 1 — "Learn the concept of landing"
 
 Goal: teach the basic structure of "stabilize → descend → touch down" from friendly initial conditions (small horizontal offset, upright start, minimal initial velocities). Discovering the first landing at all requires a large population (1000 individuals across 4 islands) and high mutation strength. Once a working strategy appears, the population shrinks to 200 and mutation drops — concentrating the most expensive search budget exactly where it is needed.
@@ -203,11 +214,26 @@ The same architecture and training framework generalizes across physically disti
 
 Each required adjusting the penalty design, not just the physical parameters. Colossus, with only 30% net upward acceleration, must ignite earlier and burn longer than Viper. Applying the same `w_early_burn` penalty (which penalizes any engine-on time above the optimal altitude, regardless of throttle level) directly punished Colossus's physically correct full-throttle behavior. After 3200 stagnant generations on Stage 3, the diagnosis was clear: the penalty was fighting the physics. It was disabled entirely for Colossus's Stage 3; fuel efficiency was incentivized through the throttle-commitment formula instead. The `delta_burn` signal adapts automatically — it computes optimal ignition altitude from each rocket's actual thrust parameters — so the network receives a physically correct timing signal across all three configurations with no architecture changes.
 
+https://github.com/user-attachments/assets/bcf2f265-ddb4-4152-b1ea-dce664f0a133
+
+
+https://github.com/user-attachments/assets/22044800-dbf8-4f15-b8ff-45dc2f9fe1e0
+
+
+https://github.com/user-attachments/assets/c18a2e53-419c-448c-bba7-012990806b32
+
+
 ---
 
 ## What I learned
 
 - **Good reward design is conditioned, not just weighted.** Gating terms by state prevents shortcut strategies. A reward that fires unconditionally is an exploit waiting to be found.
+
+
+
+https://github.com/user-attachments/assets/4307d973-96b5-4662-a04b-e4eea4cb200a
+
+
 
 - **Terminal objectives need terminal dominance.** If the goal is landing, landing must score more than any alternative behavior in every possible state. The finish bonus (landing pays out all remaining steps) is the mechanism; without it, hovering is locally rational.
 
@@ -221,7 +247,11 @@ Each required adjusting the penalty design, not just the physical parameters. Co
 
 ---
 
-## Media
+## Other
+
+https://github.com/user-attachments/assets/f06ba7e0-d101-48e3-8a98-fe1bd8e68f70
+
+ Media
 
 https://github.com/JuanOgdon/Portfolio/assets/201483014/9390ee62-759d-4c4b-8b51-e77675bd125a
 
