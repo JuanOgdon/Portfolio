@@ -34,10 +34,17 @@ The Joukowski transform maps a circle in the complex plane to an airfoil-shaped 
 
 After developing them, I shared the animations with UTN to use as teaching material in aerodynamics courses.
 
-> **Videos:** *(links to be added)*
+https://github.com/user-attachments/assets/f41d11b4-f045-417a-8188-571d90cfb837
+
+
+https://github.com/user-attachments/assets/abbda60f-898b-4ba3-944d-5779312bfb84
+
 
 ---
 
 ## Why I think about teaching the way I do
 
-The best explanation I can give of a concept is one that makes the listener think "of course — it couldn't work any other way." Getting there usually requires understanding the thing deeply enough to see why it's true, not just that it is. That's the standard I try to hold myself to, both in teaching and in my own work.
+The best explanation I can give of a concept is one that makes the listener think "of course — it couldn't work any other way." Getting there usually requires understanding the thing deeply enough to see why it's true, not just that it is. That's the standard I try to hold myself to, both in teaching and in my own work. When the answer feels obvious and logical, there is no need to memorize and the knowledge finds its way deeper into our brains.
+
+
+
