@@ -1,8 +1,10 @@
 # CubeSat Solar Panel Appendage Release System
 
 **Organization:** Grupo de Tecnología Aeroespacial, UTN — HaedoSat Project (2022–2024)
+
 **Recognition:** Best Presentation Award in Satellite Technology — IAA Latin American Small Satellite Conference, 2024
-**Tools used:** Solid Edge (CAD), FDM 3D Printing (PLA), Python, Arduino electronics
+
+**Tools used:** Fusion 360 (CAD), FDM 3D Printing (PLA), Python, Arduino electronics
 
 ---
 
