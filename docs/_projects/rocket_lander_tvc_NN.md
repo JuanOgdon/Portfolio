@@ -227,11 +227,13 @@ https://github.com/user-attachments/assets/c18a2e53-419c-448c-bba7-012990806b32
 
 ## What I learned
 
-- **Good reward design is conditioned, not just weighted.** Gating terms by state prevents shortcut strategies. A reward that fires unconditionally is an exploit waiting to be found.
+- **Good reward design is conditioned, not just weighted.** Gating terms by state prevents shortcut strategies. A reward that fires unconditionally is an exploit waiting to be found. Next you will see a video for the hover exploit. I leave you as a thought experiment to think what could have caused this and how to solve it (Ask me about it if you are interested).
 
 
 
-https://github.com/user-attachments/assets/4307d973-96b5-4662-a04b-e4eea4cb200a
+https://github.com/user-attachments/assets/d55d011f-4a29-4ea3-9b9b-7779144f33cd
+
+
 
 
 
