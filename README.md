@@ -42,4 +42,4 @@ https://github.com/user-attachments/assets/4d74fd9a-b3b1-4896-b855-46148441fc97
 
 ---
 
-*Seeking graduate research opportunities in advanced control, genetic algorithms, and AI-based autonomous systems.*
+*Seeking graduate research opportunities in advanced control, genetic algorithms, and AI-based autonomous systems. Feel free to contact me: juanogdon@gmail.com*
