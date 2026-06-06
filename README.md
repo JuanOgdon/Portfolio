@@ -10,7 +10,7 @@ My work spans the full stack of an aerospace control problem: from physical mode
 
 | Project | Key concepts | Status |
 |---|---|---|
-| [GA-Evolved Neural Network Rocket Landing Controller](docs/_projects/Getenic-Algorithm pipeline for TVC Rocket landing discovery.md) | Genetic algorithms, neural networks, reward shaping, curriculum learning | Complete |
+| [GA-Evolved Neural Network Rocket Landing Controller](docs/_projects/Getenic-Algorithm_pipeline_for_TVC_Rocket_landing_discovery.md) | Genetic algorithms, neural networks, reward shaping, curriculum learning | Complete |
 | [2D Rocket TVC Attitude Control Simulation](docs/_projects/tvc_simulation.md) | PID control, aerodynamics, Simulink, waypoint guidance | Complete |
 | [Rocket Airbrake: MPC + Kalman Filter](docs/_projects/airbrake_mpc.md) | Model Predictive Control, Kalman filtering, competition rocketry | In development |
 | [CubeSat Solar Panel Appendage Release System](docs/_projects/cubesat_appendage.md) | Space mechanisms, deployment, structural characterization | Complete — IAA 2024 Best Presentation |
