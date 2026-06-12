@@ -3,7 +3,7 @@
 **Course:** Control Systems — Final Integrating Project, UTN (2024)
 **Co-author:** Felipe Costalonga
 
-This project is a complete 2D simulation of a Thrust Vector Control (TVC) rocket, built in Simulink from physical first principles. The goal was not just to make something that "works," but to understand every layer of the system — from basic kinematics, through full aerodynamic modeling, to a tuned guidance and control loop.
+This project is a complete 2D simulation of a Thrust Vector Control (TVC) rocket, built in Simulink from physical first principles; built from scratch. The goal was not just to make something that "works," but to understand every layer of the system — from basic kinematics, through full aerodynamic modeling, to a tuned guidance and control loop.
 
 All 8 planned milestones were completed.
 
