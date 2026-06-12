@@ -27,7 +27,7 @@ I've been teaching mathematics and physics since 2019, and I'm currently a Teach
 
 ## 🔗 Quick Links
 
-- **Latest project:** [GA-Evolved Rocket Landing Controller](docs/_projects/rocket_lander_tvc_NN.md)
+- **Latest project:** [GA-Evolved Rocket Landing Controller](docs/_projects/Getenic-Algorithm_pipeline_for_TVC_Rocket_landing_discovery.md)
 - **Resume (PDF):** [Resume_Juan_Ogdon.pdf](Resume_Juan_Ogdon.pdf)
 - **LinkedIn:** [linkedin.com/in/juanogdon](https://www.linkedin.com/in/juan-ignacio-ogdon/)
 - **Contact:** juanogdon@gmail.com
