@@ -251,6 +251,8 @@ https://github.com/user-attachments/assets/d55d011f-4a29-4ea3-9b9b-7779144f33cd
 
 ## Other
 
+Check the presentation of this work on IAA 2026 on youtube: https://youtu.be/Z8AFMWJ5QvM 
+
 https://github.com/user-attachments/assets/f06ba7e0-d101-48e3-8a98-fe1bd8e68f70
 
  Media
